@@ -34,6 +34,8 @@ export const getBackgroundColorCode = (type: string) => {
       return "#B8B8D0";
     case "fairy":
       return "#EE99AC";
+    case "normal":
+      return "#B8B8B1";
     default:
       return "#FFFFFF"; // Default to white for unknown types
   }
