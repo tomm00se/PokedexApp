@@ -1,37 +1,18 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router"
+import { Image } from "react-native"
+import PokeballIcon from "../../assets/Pokeball-Icon.png"
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabLayout = () => {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
+    <Tabs screenOptions={({ route }) => ({
+      headerShown: false
+    })}>
+      <Tabs.Screen name="Home" options={{ title: "", tabBarIcon: ()=>{
+        return <Image source={PokeballIcon} style={{ width: 80, height: 80 }}/>
+      }}}/>
+      <Tabs.Screen name="List"/>
     </Tabs>
-  );
+  )
 }
+
+export default TabLayout
