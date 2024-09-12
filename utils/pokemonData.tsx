@@ -27,7 +27,6 @@ const pokemonData = [
     name: "Charmander",
     id: "#004",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
   },
@@ -35,7 +34,6 @@ const pokemonData = [
     name: "Charmeleon",
     id: "#005",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
   },
@@ -51,7 +49,6 @@ const pokemonData = [
     name: "Squirtle",
     id: "#007",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
   },
@@ -59,7 +56,6 @@ const pokemonData = [
     name: "Wartortle",
     id: "#008",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
   },
@@ -67,7 +63,6 @@ const pokemonData = [
     name: "Blastoise",
     id: "#009",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
   },
@@ -75,7 +70,6 @@ const pokemonData = [
     name: "Caterpie",
     id: "#010",
     type: "Bug",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
   },
@@ -83,7 +77,6 @@ const pokemonData = [
     name: "Metapod",
     id: "#011",
     type: "Bug",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
   },
@@ -147,7 +140,6 @@ const pokemonData = [
     name: "Rattata",
     id: "#019",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png",
   },
@@ -155,7 +147,6 @@ const pokemonData = [
     name: "Raticate",
     id: "#020",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png",
   },
@@ -179,7 +170,6 @@ const pokemonData = [
     name: "Ekans",
     id: "#023",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
   },
@@ -187,7 +177,6 @@ const pokemonData = [
     name: "Arbok",
     id: "#024",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
   },
@@ -195,7 +184,6 @@ const pokemonData = [
     name: "Pikachu",
     id: "#025",
     type: "Electric",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
   },
@@ -203,7 +191,6 @@ const pokemonData = [
     name: "Raichu",
     id: "#026",
     type: "Electric",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
   },
@@ -211,7 +198,6 @@ const pokemonData = [
     name: "Sandshrew",
     id: "#027",
     type: "Ground",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png",
   },
@@ -219,7 +205,6 @@ const pokemonData = [
     name: "Sandslash",
     id: "#028",
     type: "Ground",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png",
   },
@@ -227,7 +212,6 @@ const pokemonData = [
     name: "Nidoran♀",
     id: "#029",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/29.png",
   },
@@ -235,7 +219,6 @@ const pokemonData = [
     name: "Nidorina",
     id: "#030",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
   },
@@ -251,7 +234,6 @@ const pokemonData = [
     name: "Nidoran♂",
     id: "#032",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
   },
@@ -259,7 +241,6 @@ const pokemonData = [
     name: "Nidorino",
     id: "#033",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
   },
@@ -275,7 +256,6 @@ const pokemonData = [
     name: "Clefairy",
     id: "#035",
     type: "Fairy",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/35.png",
   },
@@ -283,7 +263,6 @@ const pokemonData = [
     name: "Clefable",
     id: "#036",
     type: "Fairy",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/36.png",
   },
@@ -291,7 +270,6 @@ const pokemonData = [
     name: "Vulpix",
     id: "#037",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
   },
@@ -299,7 +277,6 @@ const pokemonData = [
     name: "Ninetales",
     id: "#038",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png",
   },
@@ -395,7 +372,6 @@ const pokemonData = [
     name: "Diglett",
     id: "#050",
     type: "Ground",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png",
   },
@@ -403,7 +379,6 @@ const pokemonData = [
     name: "Dugtrio",
     id: "#051",
     type: "Ground",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
   },
@@ -411,7 +386,6 @@ const pokemonData = [
     name: "Meowth",
     id: "#052",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png",
   },
@@ -419,7 +393,6 @@ const pokemonData = [
     name: "Persian",
     id: "#053",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png",
   },
@@ -427,7 +400,6 @@ const pokemonData = [
     name: "Psyduck",
     id: "#054",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png",
   },
@@ -435,7 +407,6 @@ const pokemonData = [
     name: "Golduck",
     id: "#055",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/55.png",
   },
@@ -443,7 +414,6 @@ const pokemonData = [
     name: "Mankey",
     id: "#056",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/56.png",
   },
@@ -451,7 +421,6 @@ const pokemonData = [
     name: "Primeape",
     id: "#057",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
   },
@@ -459,7 +428,6 @@ const pokemonData = [
     name: "Growlithe",
     id: "#058",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png",
   },
@@ -467,7 +435,6 @@ const pokemonData = [
     name: "Arcanine",
     id: "#059",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
   },
@@ -475,7 +442,6 @@ const pokemonData = [
     name: "Poliwag",
     id: "#060",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/60.png",
   },
@@ -483,7 +449,6 @@ const pokemonData = [
     name: "Poliwhirl",
     id: "#061",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/61.png",
   },
@@ -499,7 +464,6 @@ const pokemonData = [
     name: "Abra",
     id: "#063",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png",
   },
@@ -507,7 +471,6 @@ const pokemonData = [
     name: "Kadabra",
     id: "#064",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/64.png",
   },
@@ -515,7 +478,6 @@ const pokemonData = [
     name: "Alakazam",
     id: "#065",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png",
   },
@@ -523,7 +485,6 @@ const pokemonData = [
     name: "Machop",
     id: "#066",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png",
   },
@@ -531,7 +492,6 @@ const pokemonData = [
     name: "Machoke",
     id: "#067",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png",
   },
@@ -539,7 +499,6 @@ const pokemonData = [
     name: "Machamp",
     id: "#068",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
   },
@@ -611,7 +570,6 @@ const pokemonData = [
     name: "Ponyta",
     id: "#077",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/77.png",
   },
@@ -619,7 +577,6 @@ const pokemonData = [
     name: "Rapidash",
     id: "#078",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png",
   },
@@ -683,7 +640,6 @@ const pokemonData = [
     name: "Seel",
     id: "#086",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/86.png",
   },
@@ -699,7 +655,6 @@ const pokemonData = [
     name: "Grimer",
     id: "#088",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/88.png",
   },
@@ -707,7 +662,6 @@ const pokemonData = [
     name: "Muk",
     id: "#089",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
   },
@@ -715,7 +669,6 @@ const pokemonData = [
     name: "Shellder",
     id: "#090",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/90.png",
   },
@@ -763,7 +716,6 @@ const pokemonData = [
     name: "Drowzee",
     id: "#096",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/96.png",
   },
@@ -771,7 +723,6 @@ const pokemonData = [
     name: "Hypno",
     id: "#097",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/97.png",
   },
@@ -779,7 +730,6 @@ const pokemonData = [
     name: "Krabby",
     id: "#098",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png",
   },
@@ -787,7 +737,6 @@ const pokemonData = [
     name: "Kingler",
     id: "#099",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/99.png",
   },
@@ -795,7 +744,6 @@ const pokemonData = [
     name: "Voltorb",
     id: "#100",
     type: "Electric",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
   },
@@ -803,7 +751,6 @@ const pokemonData = [
     name: "Electrode",
     id: "#101",
     type: "Electric",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png",
   },
@@ -827,7 +774,6 @@ const pokemonData = [
     name: "Cubone",
     id: "#104",
     type: "Ground",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png",
   },
@@ -835,7 +781,6 @@ const pokemonData = [
     name: "Marowak",
     id: "#105",
     type: "Ground",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
   },
@@ -843,7 +788,6 @@ const pokemonData = [
     name: "Hitmonlee",
     id: "#106",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png",
   },
@@ -851,7 +795,6 @@ const pokemonData = [
     name: "Hitmonchan",
     id: "#107",
     type: "Fighting",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/107.png",
   },
@@ -859,7 +802,6 @@ const pokemonData = [
     name: "Lickitung",
     id: "#108",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/108.png",
   },
@@ -867,7 +809,6 @@ const pokemonData = [
     name: "Koffing",
     id: "#109",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/109.png",
   },
@@ -875,7 +816,6 @@ const pokemonData = [
     name: "Weezing",
     id: "#110",
     type: "Poison",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/110.png",
   },
@@ -899,7 +839,6 @@ const pokemonData = [
     name: "Chansey",
     id: "#113",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/113.png",
   },
@@ -907,7 +846,6 @@ const pokemonData = [
     name: "Tangela",
     id: "#114",
     type: "Grass",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/114.png",
   },
@@ -915,7 +853,6 @@ const pokemonData = [
     name: "Kangaskhan",
     id: "#115",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/115.png",
   },
@@ -923,7 +860,6 @@ const pokemonData = [
     name: "Horsea",
     id: "#116",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/116.png",
   },
@@ -931,7 +867,6 @@ const pokemonData = [
     name: "Seadra",
     id: "#117",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/117.png",
   },
@@ -939,7 +874,6 @@ const pokemonData = [
     name: "Goldeen",
     id: "#118",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/118.png",
   },
@@ -947,7 +881,6 @@ const pokemonData = [
     name: "Seaking",
     id: "#119",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/119.png",
   },
@@ -955,7 +888,6 @@ const pokemonData = [
     name: "Staryu",
     id: "#120",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/120.png",
   },
@@ -995,7 +927,6 @@ const pokemonData = [
     name: "Electabuzz",
     id: "#125",
     type: "Electric",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png",
   },
@@ -1003,7 +934,6 @@ const pokemonData = [
     name: "Magmar",
     id: "#126",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/126.png",
   },
@@ -1011,7 +941,6 @@ const pokemonData = [
     name: "Pinsir",
     id: "#127",
     type: "Bug",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/127.png",
   },
@@ -1019,7 +948,6 @@ const pokemonData = [
     name: "Tauros",
     id: "#128",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/128.png",
   },
@@ -1027,7 +955,6 @@ const pokemonData = [
     name: "Magikarp",
     id: "#129",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
   },
@@ -1051,7 +978,6 @@ const pokemonData = [
     name: "Ditto",
     id: "#132",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
   },
@@ -1059,7 +985,6 @@ const pokemonData = [
     name: "Eevee",
     id: "#133",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
   },
@@ -1067,7 +992,6 @@ const pokemonData = [
     name: "Vaporeon",
     id: "#134",
     type: "Water",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png",
   },
@@ -1075,7 +999,6 @@ const pokemonData = [
     name: "Jolteon",
     id: "#135",
     type: "Electric",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png",
   },
@@ -1083,7 +1006,6 @@ const pokemonData = [
     name: "Flareon",
     id: "#136",
     type: "Fire",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png",
   },
@@ -1091,7 +1013,6 @@ const pokemonData = [
     name: "Porygon",
     id: "#137",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/137.png",
   },
@@ -1139,7 +1060,6 @@ const pokemonData = [
     name: "Snorlax",
     id: "#143",
     type: "Normal",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
   },
@@ -1171,7 +1091,6 @@ const pokemonData = [
     name: "Dratini",
     id: "#147",
     type: "Dragon",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/147.png",
   },
@@ -1179,7 +1098,6 @@ const pokemonData = [
     name: "Dragonair",
     id: "#148",
     type: "Dragon",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/148.png",
   },
@@ -1195,7 +1113,6 @@ const pokemonData = [
     name: "Mewtwo",
     id: "#150",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png",
   },
@@ -1203,7 +1120,6 @@ const pokemonData = [
     name: "Mew",
     id: "#151",
     type: "Psychic",
-    secondType: null,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
   },
