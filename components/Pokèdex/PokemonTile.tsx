@@ -42,10 +42,12 @@ export const PokemonTile: React.FC<PokemonTileProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    position: "relative",
     borderRadius: 16,
     padding: 15,
     width: "50%",
     maxHeight: 150,
+    height: 150,
     flexShrink: 1,
     shadowColor: "#000",
     shadowOpacity: 0.2,
@@ -90,9 +92,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   image: {
-    width: 150,
-    height: 150,
-    bottom: 110,
-    left: 25,
+    width: 160,
+    height: 160,
+    bottom: -20,
+    right: -20,
+    zIndex: -99999,
+    position: "absolute",
   },
 });
