@@ -1,7 +1,7 @@
 import React from 'react'
 import { Stack } from 'expo-router'
 
-const ListLayout = () => {
+const PokèdexLayout = () => {
   return (
     <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -9,4 +9,4 @@ const ListLayout = () => {
   )
 }
 
-export default ListLayout
+export default PokèdexLayout
