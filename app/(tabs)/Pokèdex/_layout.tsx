@@ -1,12 +1,12 @@
-import React from 'react'
-import { Stack } from 'expo-router'
+import React from "react";
+import { Stack } from "expo-router";
 
 const PokèdexLayout = () => {
   return (
     <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-      </Stack>
-  )
-}
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+    </Stack>
+  );
+};
 
-export default PokèdexLayout
+export default PokèdexLayout;

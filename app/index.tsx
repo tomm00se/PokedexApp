@@ -1,8 +1,7 @@
-import { Redirect } from "expo-router"
+import { Redirect } from "expo-router";
 
 const StartPage = () => {
-  return <Redirect href="/(tabs)/Home/"/>
-}
+  return <Redirect href="/(tabs)/Home/" />;
+};
 
-export default StartPage
-
+export default StartPage;
