@@ -7,10 +7,11 @@ const TabLayout = () => {
     <Tabs screenOptions={({ route }) => ({
       headerShown: false
     })}>
+      <Tabs.Screen name="Carddex"/>
       <Tabs.Screen name="Home" options={{ title: "", tabBarIcon: ()=>{
         return <Image source={PokeballIcon} style={{ width: 80, height: 80 }}/>
       }}}/>
-      <Tabs.Screen name="List"/>
+      <Tabs.Screen name="Pokèdex"/>
     </Tabs>
   )
 }
