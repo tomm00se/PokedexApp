@@ -7,10 +7,8 @@ import {
   SafeAreaView,
 } from "react-native";
 import React from "react";
-import {
-  PokemonTile,
-  PokemonTileProps,
-} from "@/components/Pokèdex/PokemonTile";
+import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
+import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
 
 import pokemonData from "@/utils/pokemonData";
 
