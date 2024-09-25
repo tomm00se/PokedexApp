@@ -5,6 +5,7 @@ import {
   ListRenderItemInfo,
   FlatList,
   SafeAreaView,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
@@ -19,12 +20,17 @@ const Pokèdex = () => {
 
   useEffect(() => {
     const fetchAllKantoPokemon = async () => {
-      const fetchedPokemonData = await getKantoPokemonById();
-      setPokemon(fetchedPokemonData);
+      setIsLoading(true);
+      try {
+        const fetchedPokemonData = await getKantoPokemonById();
+        setPokemon(fetchedPokemonData);
+      } catch (error) {
+        console.error("Error fetching Pokemon:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
-    setIsLoading(true);
     fetchAllKantoPokemon();
-    setIsLoading(false);
   }, []);
 
   const renderItem = ({ item }: ListRenderItemInfo<PokemonTileProps>) => (
@@ -34,15 +40,19 @@ const Pokèdex = () => {
     <SafeAreaView style={styles.safeArea}>
       <View>
         <Text style={styles.title}>Pokèdex</Text>
-        <FlatList
-          data={pokemon}
-          renderItem={renderItem}
-          numColumns={2}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.contentContainerStyle}
-          columnWrapperStyle={styles.columnWrapperStyle}
-          initialNumToRender={10}
-        />
+        {isLoading ? (
+          <ActivityIndicator animating={true} size="large" color="#0000ff" />
+        ) : (
+          <FlatList
+            data={pokemon}
+            renderItem={renderItem}
+            numColumns={2}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.contentContainerStyle}
+            columnWrapperStyle={styles.columnWrapperStyle}
+            initialNumToRender={10}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
