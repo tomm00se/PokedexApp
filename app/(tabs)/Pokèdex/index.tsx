@@ -6,13 +6,27 @@ import {
   FlatList,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
 import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
 
 import pokemonData from "@/utils/pokemonData";
+import { getKantoPokemonById } from "@/utils/axios/get";
 
 const Pokèdex = () => {
+  const [pokemon, setPokemon] = useState<PokemonTileProps[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchAllKantoPokemon = async () => {
+      const fetchedPokemonData = await getKantoPokemonById();
+      setPokemon(fetchedPokemonData);
+    };
+    setIsLoading(true);
+    fetchAllKantoPokemon();
+    setIsLoading(false);
+  }, []);
+
   const renderItem = ({ item }: ListRenderItemInfo<PokemonTileProps>) => (
     <PokemonTile {...item} />
   );
@@ -21,12 +35,13 @@ const Pokèdex = () => {
       <View>
         <Text style={styles.title}>Pokèdex</Text>
         <FlatList
-          data={pokemonData}
+          data={pokemon}
           renderItem={renderItem}
           numColumns={2}
           keyExtractor={(item) => item.id}
           contentContainerStyle={styles.contentContainerStyle}
           columnWrapperStyle={styles.columnWrapperStyle}
+          initialNumToRender={10}
         />
       </View>
     </SafeAreaView>
