@@ -1,5 +1,5 @@
 import { Text, StyleSheet, View, Image } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { getBackgroundColorCode } from "@/utils/getBackgroundColorCode";
 import { PokemonTileProps } from "./IPokemonTile";
 
@@ -12,13 +12,11 @@ export const PokemonTile: React.FC<PokemonTileProps> = ({
 }) => {
   const backgroundColor = getBackgroundColorCode(type);
 
-  const [pokemon, setPokemon] = useState<PokemonTileProps[]>([]);
-
   return (
     <View style={[styles.container, { backgroundColor }]}>
       <View style={styles.details}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.id}>{id}</Text>
+        <Text style={styles.id}>{`#${id}`}</Text>
       </View>
       <View style={styles.pills}>
         <View style={styles.pill}>
@@ -59,6 +57,7 @@ const styles = StyleSheet.create({
     width: "100%",
     fontWeight: "bold",
     color: "#FFFFFF",
+    textTransform: "capitalize", //Capitalises first letter (no need for .toUpperCase())
   },
   id: {
     fontSize: 16,
