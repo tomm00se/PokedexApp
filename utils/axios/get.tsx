@@ -1,18 +1,7 @@
 import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
 import apiClient from ".";
-import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
 
-export const getAllPokemon = async () => {
-  try {
-    const response = await apiClient.get("pokemon?limit=151");
-    return response.data;
-  } catch (error) {
-    console.log("Error fetching pokemon...", error);
-    throw error;
-  }
-};
-
-export const getKantoPokemonById = async (currentPage: number) => {
+export const getAllPokemon = async (currentPage: number) => {
   const pokemonPageIncrementSize = 12;
   try {
     const pokemonData: PokemonTileProps[] = [];
