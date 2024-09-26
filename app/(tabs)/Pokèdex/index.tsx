@@ -11,30 +11,21 @@ import React, { useEffect, useState } from "react";
 import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
 import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
 
-import pokemonData from "@/utils/pokemonData";
-import { getKantoPokemonById } from "@/utils/axios/get";
+import { getAllPokemon } from "@/utils/axios/get";
 
 const Pokèdex = () => {
   const [pokemonData, setPokemonData] = useState<PokemonTileProps[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const fetchData = async () => {
-    if (isLoading) return;
-    setIsLoading(true);
     try {
-      const response = await getKantoPokemonById(currentPage);
-      setPokemonData([...pokemonData, ...response]);
+      const paginatedResponse = await getAllPokemon(currentPage);
+      setPokemonData([...pokemonData, ...paginatedResponse]);
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
     } finally {
-      setIsLoading(false);
-      setCurrentPage(currentPage + 1); //passes value down to get
+      setCurrentPage(currentPage + 1);
     }
   };
 
@@ -44,11 +35,15 @@ const Pokèdex = () => {
 
   const renderFooter = () => {
     return showFooter ? (
-      <ActivityIndicator animating={true} size="large" color="#f00000" />
+      <ActivityIndicator animating={true} size="large" color="#000000" />
     ) : (
       ""
     );
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -64,18 +59,12 @@ const Pokèdex = () => {
           columnWrapperStyle={styles.columnWrapperStyle}
           initialNumToRender={10}
           onEndReached={() => {
-            setIsLoading(false);
             setShowFooter(true);
             fetchData();
           }}
           onEndReachedThreshold={0.5}
           ListFooterComponent={renderFooter}
         />
-        {isLoading ? (
-          <ActivityIndicator animating={true} size="large" color="#f00000" />
-        ) : (
-          ""
-        )}
       </View>
     </SafeAreaView>
   );
