@@ -12,6 +12,7 @@ import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
 import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
 
 import { getAllPokemon } from "@/utils/axios/get";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const Pokèdex = () => {
   const [pokemonData, setPokemonData] = useState<PokemonTileProps[]>([]);
@@ -30,7 +31,9 @@ const Pokèdex = () => {
   };
 
   const renderItem = ({ item }: ListRenderItemInfo<PokemonTileProps>) => (
-    <PokemonTile {...item} />
+    <GestureHandlerRootView>
+      <PokemonTile {...item} />
+    </GestureHandlerRootView>
   );
 
   const renderFooter = () => {
