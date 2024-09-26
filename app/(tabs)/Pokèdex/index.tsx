@@ -15,43 +15,66 @@ import pokemonData from "@/utils/pokemonData";
 import { getKantoPokemonById } from "@/utils/axios/get";
 
 const Pokèdex = () => {
-  const [pokemon, setPokemon] = useState<PokemonTileProps[]>([]);
+  const [pokemonData, setPokemonData] = useState<PokemonTileProps[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showFooter, setShowFooter] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const fetchAllKantoPokemon = async () => {
-      setIsLoading(true);
-      try {
-        const fetchedPokemonData = await getKantoPokemonById();
-        setPokemon(fetchedPokemonData);
-      } catch (error) {
-        console.error("Error fetching Pokemon:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchAllKantoPokemon();
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    if (isLoading) return;
+    setIsLoading(true);
+    try {
+      const response = await getKantoPokemonById(currentPage);
+      setPokemonData([...pokemonData, ...response]);
+    } catch (error) {
+      console.error("Error fetching Pokemon:", error);
+    } finally {
+      setIsLoading(false);
+      setCurrentPage(currentPage + 1); //passes value down to get
+    }
+  };
 
   const renderItem = ({ item }: ListRenderItemInfo<PokemonTileProps>) => (
     <PokemonTile {...item} />
   );
+
+  const renderFooter = () => {
+    return showFooter ? (
+      <ActivityIndicator animating={true} size="large" color="#f00000" />
+    ) : (
+      ""
+    );
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View>
         <Text style={styles.title}>Pokèdex</Text>
+        <FlatList
+          style={styles.flatlist}
+          data={pokemonData}
+          renderItem={renderItem}
+          numColumns={2}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.contentContainerStyle}
+          columnWrapperStyle={styles.columnWrapperStyle}
+          initialNumToRender={10}
+          onEndReached={() => {
+            setIsLoading(false);
+            setShowFooter(true);
+            fetchData();
+          }}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={renderFooter}
+        />
         {isLoading ? (
-          <ActivityIndicator animating={true} size="large" color="#0000ff" />
+          <ActivityIndicator animating={true} size="large" color="#f00000" />
         ) : (
-          <FlatList
-            data={pokemon}
-            renderItem={renderItem}
-            numColumns={2}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={styles.contentContainerStyle}
-            columnWrapperStyle={styles.columnWrapperStyle}
-            initialNumToRender={10}
-          />
+          ""
         )}
       </View>
     </SafeAreaView>
@@ -72,6 +95,9 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 16,
     paddingHorizontal: 20,
+  },
+  flatlist: {
+    marginBottom: 50,
   },
   contentContainerStyle: {
     justifyContent: "space-around",
