@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     position: "relative",
     borderRadius: 16,
     padding: 15,
-    width: "50%",
     maxHeight: 150,
     height: 150,
     flexShrink: 1,
