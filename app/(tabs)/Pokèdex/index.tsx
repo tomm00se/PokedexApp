@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   },
   columnWrapperStyle: {
     display: "flex",
+    flexBasis: "50%",
     marginBottom: 10,
     gap: 10,
   },
