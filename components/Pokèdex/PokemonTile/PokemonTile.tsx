@@ -1,7 +1,8 @@
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, Button } from "react-native";
 import React from "react";
 import { getBackgroundColorCode } from "@/utils/getBackgroundColorCode";
 import { PokemonTileProps } from "./IPokemonTile";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export const PokemonTile: React.FC<PokemonTileProps> = ({
   name,
@@ -13,7 +14,7 @@ export const PokemonTile: React.FC<PokemonTileProps> = ({
   const backgroundColor = getBackgroundColorCode(type);
 
   return (
-    <View style={[styles.container, { backgroundColor }]}>
+    <TouchableOpacity style={[styles.container, { backgroundColor }]}>
       <View style={styles.details}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.id}>{`#${id}`}</Text>
@@ -29,7 +30,7 @@ export const PokemonTile: React.FC<PokemonTileProps> = ({
         )}
       </View>
       <Image style={styles.image} source={{ uri: image }} />
-    </View>
+    </TouchableOpacity>
   );
 };
 
