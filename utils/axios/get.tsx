@@ -12,12 +12,16 @@ export const getAllPokemon = async () => {
   }
 };
 
-export const getKantoPokemonById = async () => {
+export const getKantoPokemonById = async (currentPage: number) => {
+  const pokemonPageIncrementSize = 12;
   try {
     const pokemonData: PokemonTileProps[] = [];
-    for (let i = 1; i <= 151; i++) {
+    for (let i = 1; i <= pokemonPageIncrementSize; i++) {
       try {
-        const response = await apiClient.get(`pokemon/${i}`);
+        const pokemonID = i + (currentPage - 1) * pokemonPageIncrementSize;
+        console.log(pokemonID);
+
+        const response = await apiClient.get(`pokemon/${pokemonID}`);
 
         const pokemonTileData: PokemonTileProps = {
           name: response.data.species.name,
@@ -25,7 +29,6 @@ export const getKantoPokemonById = async () => {
           type: response.data.types[0].type.name,
           secondType: response.data.types[1]?.type.name,
           image: response.data.sprites.front_default,
-          //data here is right
         };
         pokemonData.push(pokemonTileData);
         await new Promise((resolve) => setTimeout(resolve, 200));
