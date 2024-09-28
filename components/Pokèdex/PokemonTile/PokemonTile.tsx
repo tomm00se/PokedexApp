@@ -3,7 +3,7 @@ import React from "react";
 import { getBackgroundColorCode } from "@/utils/getBackgroundColorCode";
 import { PokemonTileProps } from "./IPokemonTile";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { router } from "expo-router";
+import { useRouter } from "expo-router";
 
 export const PokemonTile: React.FC<PokemonTileProps> = ({
   name,
@@ -14,14 +14,15 @@ export const PokemonTile: React.FC<PokemonTileProps> = ({
 }) => {
   const backgroundColor = getBackgroundColorCode(type);
 
+  const router = useRouter();
+  const handleNavigation = () => {
+    router.push(`/(tabs)/Pokedex/${id}`); //this makes a dynamic page that links to the [pokemon] page
+  };
+
   return (
     <TouchableOpacity
       style={[styles.container, { backgroundColor }]}
-      onPress={() => {
-        router.push({
-          pathname: "/(tabs)/Pokedex/pokemonDetails",
-        });
-      }}
+      onPress={handleNavigation}
     >
       <View style={styles.details}>
         <Text style={styles.name}>{name}</Text>
