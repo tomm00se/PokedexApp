@@ -1,7 +1,10 @@
 export interface IPokemonDetails {
-  name?: string;
   id?: string;
-  type?: string;
-  secondType?: string;
-  image?: string;
+  name?: string;
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+  stats: { stat: { name: string }; base_stat: number }[];
+  weight: number;
+  height: number;
+  sprites: { front_default: string };
 }
