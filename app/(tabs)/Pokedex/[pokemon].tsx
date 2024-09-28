@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { getPokemonById } from "@/utils/axios/getPokemonById";
 import { IPokemonDetails } from "@/types/IPokemonDetails";
+import DetailsHeader from "@/components/DetailsHeader";
 
 export default function PokemonDetails() {
   const { pokemon: pokemonId } = useLocalSearchParams();
@@ -16,6 +17,7 @@ export default function PokemonDetails() {
       console.error("Error fetching Pokemon by ID:", error);
     }
   };
+  console.log(pokemonData);
 
   useEffect(() => {
     if (typeof pokemonId === "string") {
@@ -25,7 +27,18 @@ export default function PokemonDetails() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      {pokemonData && <Text style={styles.title}>{pokemonData.name}</Text>}
+      <DetailsHeader
+        name={pokemonData?.name}
+        id={pokemonData?.id}
+        types={pokemonData?.types} // fix nested types
+        abilities={[]}
+        stats={[]}
+        weight={0}
+        height={0}
+        sprites={{
+          front_default: "",
+        }}
+      />
     </SafeAreaView>
   );
 }
