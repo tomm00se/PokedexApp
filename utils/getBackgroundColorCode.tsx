@@ -1,5 +1,5 @@
-export const getBackgroundColorCode = (type: string) => {
-  switch (type.toLowerCase()) {
+export const getBackgroundColorCode = (type?: string) => {
+  switch (type?.toLowerCase()) {
     case "fire":
       return "#F08030";
     case "water":
