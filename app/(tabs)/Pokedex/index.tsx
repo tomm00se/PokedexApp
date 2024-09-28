@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
 import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
 
-import { getAllPokemon } from "@/utils/axios/get";
+import { getAllPokemon } from "@/utils/axios/getAllPokemon";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const Pokèdex = () => {
