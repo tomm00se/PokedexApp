@@ -8,14 +8,14 @@ import {
   ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { PokemonTile } from "@/components/Pokèdex/PokemonTile/PokemonTile";
-import { PokemonTileProps } from "@/components/Pokèdex/PokemonTile/IPokemonTile";
+import { IPokemonTile } from "@/types/IPokemonTile";
 
 import { getAllPokemon } from "@/utils/axios/getAllPokemon";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { PokemonTile } from "@/components/PokemonTile";
 
 const Pokèdex = () => {
-  const [pokemonData, setPokemonData] = useState<PokemonTileProps[]>([]);
+  const [pokemonData, setPokemonData] = useState<IPokemonTile[]>([]);
   const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -30,7 +30,7 @@ const Pokèdex = () => {
     }
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<PokemonTileProps>) => (
+  const renderItem = ({ item }: ListRenderItemInfo<IPokemonTile>) => (
     <GestureHandlerRootView>
       <PokemonTile {...item} />
     </GestureHandlerRootView>

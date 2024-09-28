@@ -1,11 +1,11 @@
 import { Text, StyleSheet, View, Image } from "react-native";
 import React from "react";
 import { getBackgroundColorCode } from "@/utils/getBackgroundColorCode";
-import { PokemonTileProps } from "./IPokemonTile";
+import { IPokemonTile } from "../types/IPokemonTile";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useRouter } from "expo-router";
 
-export const PokemonTile: React.FC<PokemonTileProps> = ({
+export const PokemonTile: React.FC<IPokemonTile> = ({
   name,
   id,
   type,
