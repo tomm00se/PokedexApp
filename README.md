@@ -27,7 +27,3 @@ You can start developing by editing the files inside the **app** directory. This
 
 
 ## Current views:
-
-- [Home](https://imgur.com/kPYYX6d)
-- [Pokèdex List (loading)](https://imgur.com/Wmo8Fvx)
-- [Pokèdex List](https://imgur.com/AldajXd)
