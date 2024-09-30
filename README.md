@@ -27,6 +27,6 @@ You can start developing by editing the files inside the **app** directory. This
 
 
 ## Current views:
-![Home](https://github.com/user-attachments/assets/15dcad4a-eb25-48ba-9c14-2a892932dd11)
-![Pokedex List (loading)](https://github.com/user-attachments/assets/03276989-d853-429f-848a-1ea4938a7ac3)
-![Pokedex List](https://github.com/user-attachments/assets/c6243fa2-c0e3-4e11-898b-400cbb87c496)
+<img src="https://github.com/user-attachments/assets/15dcad4a-eb25-48ba-9c14-2a892932dd11" width="300" />
+<img src="https://github.com/user-attachments/assets/03276989-d853-429f-848a-1ea4938a7ac3" width="300" />
+<img src="https://github.com/user-attachments/assets/c6243fa2-c0e3-4e11-898b-400cbb87c496" width="300" />
