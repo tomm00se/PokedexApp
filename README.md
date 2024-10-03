@@ -27,6 +27,8 @@ You can start developing by editing the files inside the **app** directory. This
 
 
 ## Current views:
-<img src="https://github.com/user-attachments/assets/15dcad4a-eb25-48ba-9c14-2a892932dd11" width="300" />
-<img src="https://github.com/user-attachments/assets/03276989-d853-429f-848a-1ea4938a7ac3" width="300" />
-<img src="https://github.com/user-attachments/assets/c6243fa2-c0e3-4e11-898b-400cbb87c496" width="300" />
+<img src="https://github.com/user-attachments/assets/2c0599a9-d4bb-40db-8467-ed61fe06ea2e" width="300" />
+<img src="https://github.com/user-attachments/assets/35b81a7e-7ada-4fa8-a5d5-b84d311daf6e" width="300" />
+<img src="https://github.com/user-attachments/assets/7b5885c7-1ce8-48dd-9020-5cffa0e7782e" width="300" />
+<img src="https://github.com/user-attachments/assets/79b41843-cdd9-47ae-a204-c21927920e2d" width="300" />
+
