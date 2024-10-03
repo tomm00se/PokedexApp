@@ -8,7 +8,6 @@ export const getAllPokemon = async (currentPage: number) => {
     for (let i = 1; i <= pokemonPageIncrementSize; i++) {
       try {
         const pokemonID = i + (currentPage - 1) * pokemonPageIncrementSize;
-        console.log(pokemonID);
 
         const response = await apiClient.get(`pokemon/${pokemonID}`);
 
@@ -24,11 +23,10 @@ export const getAllPokemon = async (currentPage: number) => {
       } catch (error) {
         console.error(`Error fetching pokemon with ID ${i}:`, error);
       }
-      console.log(pokemonData);
     }
     return pokemonData;
   } catch (error) {
-    console.log("Error fetching pokemon...", error);
+    console.error("Error fetching pokemon...", error);
     throw error;
   }
 };
