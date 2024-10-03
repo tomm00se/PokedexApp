@@ -1,6 +1,6 @@
 export interface IPokemonDetails {
-  id?: string;
-  name?: string;
+  id: string;
+  name: string;
   types: { type: { name: string } }[];
   abilities: { ability: { name: string } }[];
   stats: { stat: { name: string }; base_stat: number }[];
