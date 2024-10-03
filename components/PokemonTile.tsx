@@ -16,7 +16,7 @@ export const PokemonTile: React.FC<IPokemonTile> = ({
 
   const router = useRouter();
   const handleNavigation = () => {
-    router.push(`/(tabs)/Pokedex/${id}`); //this makes a dynamic page that links to the [pokemon] page
+    router.push(`/Pokedex/${id}`); //this makes a dynamic page that links to the [pokemon] page
   };
 
   return (
@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   pillText: {
+    textTransform: "capitalize",
     color: "white",
     fontSize: 14,
   },
