@@ -51,7 +51,7 @@ const Pokèdex = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View>
-        <Text style={styles.title}>Pokèdex</Text>
+        <Text style={styles.title}>Pokédex</Text>
         <FlatList
           style={styles.flatlist}
           data={pokemonData}
