@@ -6,6 +6,7 @@ import {
   FlatList,
   SafeAreaView,
   ActivityIndicator,
+  TextInput,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { IPokemonTile } from "@/types/IPokemonTile";
@@ -18,6 +19,7 @@ const Pokèdex = () => {
   const [pokemonData, setPokemonData] = useState<IPokemonTile[]>([]);
   const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [value, onChangeText] = useState("");
 
   const fetchData = async () => {
     try {
@@ -52,6 +54,14 @@ const Pokèdex = () => {
     <SafeAreaView style={styles.safeArea}>
       <View>
         <Text style={styles.title}>Pokédex</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={(value) => {
+            onChangeText(value);
+          }}
+          value={value}
+          placeholder="Pokémon name or id"
+        />
         <FlatList
           style={styles.flatlist}
           data={pokemonData}
@@ -83,6 +93,14 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     padding: 20,
+  },
+  input: {
+    borderRadius: 16,
+    height: 40,
+    borderWidth: 2,
+    padding: 20,
+    marginHorizontal: 20,
+    borderColor: "#808080",
   },
   link: {
     fontSize: 16,
