@@ -45,7 +45,7 @@ const DetailsBody = (pokemonData: IPokemonDetailsBody) => {
         <>
           <View style={styles.descriptionBlock}>
             <Text style={styles.descriptionText}>
-              {pokemonData.flavor_text_entries[0].flavor_text.replace(
+              {pokemonData.flavor_text_entries[10].flavor_text.replace(
                 /[\n\N\f\F]/g,
                 " ",
               )}
