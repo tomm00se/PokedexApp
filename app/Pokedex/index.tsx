@@ -19,7 +19,7 @@ const Pokèdex = () => {
   const [pokemonData, setPokemonData] = useState<IPokemonTile[]>([]);
   const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [value, onChangeText] = useState("");
+  const [textValue, onChangeText] = useState("");
 
   const fetchData = async () => {
     try {
@@ -56,11 +56,13 @@ const Pokèdex = () => {
         <Text style={styles.title}>Pokédex</Text>
         <TextInput
           style={styles.input}
-          onChangeText={(value) => {
-            onChangeText(value);
+          onChangeText={(text) => {
+            onChangeText(text);
           }}
-          value={value}
-          placeholder="Pokémon name or id"
+          value={textValue}
+          inputMode="text"
+          keyboardType="default"
+          placeholder="Enter Pokemon name"
         />
         <FlatList
           style={styles.flatlist}
