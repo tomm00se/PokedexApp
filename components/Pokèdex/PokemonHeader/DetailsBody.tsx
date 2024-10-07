@@ -1,12 +1,20 @@
 import { IPokemonDetailsBody } from "@/types/IPokemonDetailsBody";
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 const DetailsBody = (pokemonData: IPokemonDetailsBody) => {
   const [isAbout, setIsAbout] = useState(true);
   const [isStats, setIsStats] = useState(false);
   const [isMoves, setIsMoves] = useState(false);
   // TODO: Pull out button navbar style pagination logic into its own component
+
+  const pokemonMovesLength = pokemonData.moves.length;
+  const pokemonMoveData = [];
+  for (let i = 0; i < pokemonMovesLength; i++) {
+    pokemonMoveData.push(pokemonData.moves[i].move.name.replace("-", " "));
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -62,7 +70,17 @@ const DetailsBody = (pokemonData: IPokemonDetailsBody) => {
         </>
       )}
       {isStats && <></>}
-      {isMoves && <></>}
+      {isMoves && pokemonData.moves && (
+        <FlatList
+          data={pokemonMoveData}
+          numColumns={2}
+          columnWrapperStyle={styles.movesBlock}
+          contentContainerStyle={styles.contentContainerStyle}
+          renderItem={({ item }) => {
+            return <Text style={styles.movesText}>{item}</Text>;
+          }}
+        />
+      )}
     </View>
   );
 };
@@ -76,7 +94,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   buttonContainer: {
-    paddingTop: 20,
+    paddingVertical: 20,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
@@ -87,7 +105,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    paddingTop: 30,
     paddingHorizontal: 20,
   },
   descriptionText: {
@@ -106,6 +123,19 @@ const styles = StyleSheet.create({
   },
   evoText: {
     color: "#808080",
+    textTransform: "capitalize",
+  },
+  movesBlock: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  contentContainerStyle: {
+    paddingHorizontal: 40,
+    paddingBottom: 300,
+  },
+  movesText: {
+    paddingBottom: 10,
+    color: "#808090",
     textTransform: "capitalize",
   },
 });

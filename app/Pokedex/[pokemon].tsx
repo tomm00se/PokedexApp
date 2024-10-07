@@ -8,6 +8,7 @@ import DetailsBody from "@/components/Pokèdex/PokemonHeader/DetailsBody";
 import { IPokemonDetails } from "@/types/IPokemonDetails";
 import { getPokemonSpecies } from "@/utils/axios/getPokemonSpecies";
 import { IPokemonDetailsBody } from "@/types/IPokemonDetailsBody";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function PokemonDetails() {
   const { pokemon: pokemonId } = useLocalSearchParams();
@@ -42,21 +43,24 @@ export default function PokemonDetails() {
       <StatusBar barStyle={"light-content"} />
       {pokemonData && pokemonSpecies && (
         <>
-          <DetailsHeader
-            name={pokemonData.name}
-            id={pokemonData.id}
-            types={pokemonData.types}
-            sprites={pokemonData.sprites}
-            cries={pokemonData.cries}
-          />
-          <DetailsBody
-            abilities={pokemonData.abilities}
-            stats={pokemonData.stats}
-            weight={pokemonData.weight}
-            height={pokemonData.height}
-            flavor_text_entries={pokemonSpecies.flavor_text_entries}
-            evolves_from_species={pokemonSpecies.evolves_from_species}
-          />
+          <GestureHandlerRootView>
+            <DetailsHeader
+              name={pokemonData.name}
+              id={pokemonData.id}
+              types={pokemonData.types}
+              sprites={pokemonData.sprites}
+              cries={pokemonData.cries}
+            />
+            <DetailsBody
+              abilities={pokemonData.abilities}
+              stats={pokemonData.stats}
+              weight={pokemonData.weight}
+              height={pokemonData.height}
+              moves={pokemonData.moves}
+              flavor_text_entries={pokemonSpecies.flavor_text_entries}
+              evolves_from_species={pokemonSpecies.evolves_from_species}
+            />
+          </GestureHandlerRootView>
         </>
       )}
     </SafeAreaView>

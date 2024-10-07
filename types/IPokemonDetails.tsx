@@ -8,4 +8,5 @@ export interface IPokemonDetails {
   stats: { stat: { name: string }; base_stat: number }[];
   weight: number;
   height: number;
+  moves: { move: { name: string } }[];
 }
