@@ -6,7 +6,6 @@ import {
   FlatList,
   SafeAreaView,
   ActivityIndicator,
-  TextInput,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { IPokemonTile } from "@/types/IPokemonTile";
@@ -14,12 +13,15 @@ import { IPokemonTile } from "@/types/IPokemonTile";
 import { getAllPokemon } from "@/utils/axios/getAllPokemon";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PokemonTile } from "@/components/PokemonTile";
+import SearchButton from "@/components/Pokèdex/PokemonHeader/SearchButton";
+import SearchBox from "@/components/Pokèdex/PokemonHeader/SearchBox";
 
 const Pokèdex = () => {
   const [pokemonData, setPokemonData] = useState<IPokemonTile[]>([]);
   const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [textValue, onChangeText] = useState("");
+
+  const [showTextInput, setShowTextInput] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -50,20 +52,20 @@ const Pokèdex = () => {
     fetchData();
   }, []);
 
+  const handleButtonPress = () => {
+    setShowTextInput(!showTextInput);
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View>
-        <Text style={styles.title}>Pokédex</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => {
-            onChangeText(text);
-          }}
-          value={textValue}
-          inputMode="text"
-          keyboardType="default"
-          placeholder="Enter Pokemon name"
-        />
+        <View style={styles.headingBlock}>
+          <Text style={styles.title}>Pokédex</Text>
+          <View onTouchStart={handleButtonPress}>
+            <SearchButton />
+          </View>
+        </View>
+        {showTextInput && <SearchBox />}
         <FlatList
           style={styles.flatlist}
           data={pokemonData}
@@ -91,18 +93,24 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
+  headingBlock: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   title: {
     fontSize: 32,
     fontWeight: "bold",
     padding: 20,
   },
   input: {
-    borderRadius: 16,
-    height: 40,
-    borderWidth: 2,
-    padding: 20,
+    borderRadius: 30,
+    height: 50,
+    borderWidth: 1,
+    paddingHorizontal: 15,
     marginHorizontal: 20,
-    borderColor: "#808080",
+    borderColor: "#000000",
+    color: "#000000",
   },
   link: {
     fontSize: 16,
