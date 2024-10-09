@@ -52,7 +52,7 @@ const Pokèdex = () => {
   const onSearch = async (query: string) => {
     try {
       if (!query) {
-        throw new Error("Thats not a fucking pokemon dipshit");
+        throw new Error("Thats not a valid pokemon");
       }
       const response = await getPokemonById(query);
       setSearchedPokemon(response);
@@ -65,8 +65,6 @@ const Pokèdex = () => {
 
   const tileProps = useMemo((): IPokemonTileProps | undefined => {
     if (!searchedPokemon) return undefined;
-    console.log(searchedPokemon);
-
     return {
       name: searchedPokemon.name,
       id: searchedPokemon.id,
