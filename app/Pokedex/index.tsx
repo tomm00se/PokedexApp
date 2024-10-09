@@ -7,21 +7,22 @@ import {
   SafeAreaView,
   ActivityIndicator,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import { IPokemonTile } from "@/types/IPokemonTile";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { getAllPokemon } from "@/utils/axios/getAllPokemon";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { PokemonTile } from "@/components/PokemonTile";
+import { IPokemonTileProps, PokemonTile } from "@/components/PokemonTile";
 import SearchButton from "@/components/Pokèdex/PokemonHeader/SearchButton";
 import SearchBox from "@/components/Pokèdex/PokemonHeader/SearchBox";
+import { getPokemonById } from "@/utils/axios/getPokemonById";
+import { IPokemonDetails } from "@/types/IPokemonDetails";
 
 const Pokèdex = () => {
-  const [pokemonData, setPokemonData] = useState<IPokemonTile[]>([]);
+  const [pokemonData, setPokemonData] = useState<IPokemonTileProps[]>([]);
   const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-
   const [showTextInput, setShowTextInput] = useState(false);
+  const [searchedPokemon, setSearchedPokemon] = useState<IPokemonDetails>();
 
   const fetchData = async () => {
     try {
@@ -34,7 +35,7 @@ const Pokèdex = () => {
     }
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<IPokemonTile>) => (
+  const renderItem = ({ item }: ListRenderItemInfo<IPokemonTileProps>) => (
     <GestureHandlerRootView>
       <PokemonTile {...item} />
     </GestureHandlerRootView>
@@ -47,6 +48,33 @@ const Pokèdex = () => {
       ""
     );
   };
+
+  const onSearch = async (query: string) => {
+    try {
+      if (!query) {
+        throw new Error("Thats not a fucking pokemon dipshit");
+      }
+      const response = await getPokemonById(query);
+      setSearchedPokemon(response);
+      console.log(response);
+    } catch (error) {
+      console.error("Error fetching Pokemon:", error);
+      setSearchedPokemon(undefined);
+    }
+  };
+
+  const tileProps = useMemo((): IPokemonTileProps | undefined => {
+    if (!searchedPokemon) return undefined;
+    console.log(searchedPokemon);
+
+    return {
+      name: searchedPokemon.name,
+      id: searchedPokemon.id,
+      type: searchedPokemon.types[0].type.name,
+      secondType: searchedPokemon.types[1]?.type.name,
+      image: searchedPokemon.sprites.front_default,
+    };
+  }, [searchedPokemon]);
 
   useEffect(() => {
     fetchData();
@@ -65,23 +93,34 @@ const Pokèdex = () => {
             <SearchButton />
           </View>
         </View>
-        {showTextInput && <SearchBox />}
-        <FlatList
-          style={styles.flatlist}
-          data={pokemonData}
-          renderItem={renderItem}
-          numColumns={2}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.contentContainerStyle}
-          columnWrapperStyle={styles.columnWrapperStyle}
-          initialNumToRender={10}
-          onEndReached={() => {
-            setShowFooter(true);
-            fetchData();
-          }}
-          onEndReachedThreshold={0.5}
-          ListFooterComponent={renderFooter}
-        />
+        {showTextInput && <SearchBox onSearch={onSearch} />}
+        {tileProps && (
+          <FlatList
+            style={styles.flatlist}
+            data={[tileProps]}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.contentContainerStyle}
+          />
+        )}
+        {!tileProps && (
+          <FlatList
+            style={styles.flatlist}
+            data={pokemonData}
+            renderItem={renderItem}
+            numColumns={2}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.contentContainerStyle}
+            columnWrapperStyle={styles.columnWrapperStyle}
+            initialNumToRender={10}
+            onEndReached={() => {
+              setShowFooter(true);
+              fetchData();
+            }}
+            onEndReachedThreshold={0.5}
+            ListFooterComponent={renderFooter}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
