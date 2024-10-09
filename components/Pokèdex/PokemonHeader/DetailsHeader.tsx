@@ -1,6 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import { IPokemonDetailsHeader } from "@/types/IPokemonDetailsHeader";
+
+export interface IPokemonDetailsHeader {
+  id: string;
+  name: string;
+  types: { type: { name: string } }[];
+  sprites: { front_default: string };
+  cries: { latest: string };
+}
 
 const DetailsHeader = (pokemonData: IPokemonDetailsHeader) => {
   return (
