@@ -5,20 +5,21 @@ import { getPokemonById } from "@/utils/axios/getPokemonById";
 import DetailsHeader from "@/components/Pokèdex/PokemonHeader/DetailsHeader";
 import { getBackgroundColorCode } from "@/utils/getBackgroundColorCode";
 import DetailsBody from "@/components/Pokèdex/PokemonHeader/DetailsBody";
-import { IPokemonDetails } from "@/types/IPokemonDetails";
 import { getPokemonSpecies } from "@/utils/axios/getPokemonSpecies";
-import { IPokemonDetailsBody } from "@/types/IPokemonDetailsBody";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { IPokemonDetails } from "@/types/IPokemonDetails";
+import { IPokemonSpecies } from "@/types/IPokemonSpecies";
 
 export default function PokemonDetails() {
   const { pokemon: pokemonId } = useLocalSearchParams();
   const [pokemonData, setPokemonData] = useState<IPokemonDetails>();
-  const [pokemonSpecies, setPokemonSpecies] = useState<IPokemonDetailsBody>();
+  const [pokemonSpecies, setPokemonSpecies] = useState<IPokemonSpecies>();
 
   const fetchData = async (pokemonId: string) => {
     try {
       const response = await getPokemonById(pokemonId); //Typeguard in useEffect
       const speciesResponse = await getPokemonSpecies(pokemonId);
+
       setPokemonData(response);
       setPokemonSpecies(speciesResponse);
     } catch (error) {
@@ -35,8 +36,6 @@ export default function PokemonDetails() {
   const backgroundColor = getBackgroundColorCode(
     pokemonData?.types[0].type.name, // JSON.Stringify() helped find the value for types! use it more plz
   );
-
-  console.log(pokemonSpecies, "egg");
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor }]}>
