@@ -1,22 +1,37 @@
 import { View, TextInput, StyleSheet } from "react-native";
 import React, { useState } from "react";
+import { getPokemonById } from "@/utils/axios/getPokemonById";
+import { IPokemonTileProps } from "@/components/PokemonTile";
 
-const SearchBox = () => {
+export interface ISearchBoxProps {
+  onSearch: (query: string) => void;
+}
+
+const SearchBox = ({ onSearch }: ISearchBoxProps) => {
   const [value, onChangeText] = useState("");
 
+  const handleSubmit = async () => {
+    const cleanValue = value.toLowerCase();
+    onSearch(cleanValue);
+  };
+
   return (
-    <View>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => {
-          onChangeText(text);
-        }}
-        value={value}
-        inputMode="text"
-        keyboardType="default"
-        placeholder="Enter Pokemon name"
-      />
-    </View>
+    <>
+      <View>
+        <TextInput
+          style={styles.input}
+          inputMode="text"
+          keyboardType="default"
+          placeholder="Enter Pokemon name"
+          autoCapitalize="none"
+          onChangeText={(text) => {
+            onChangeText(text);
+          }}
+          value={value}
+          onSubmitEditing={handleSubmit}
+        />
+      </View>
+    </>
   );
 };
 
