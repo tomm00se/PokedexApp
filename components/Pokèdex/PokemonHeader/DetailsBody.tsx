@@ -1,9 +1,18 @@
-import { IPokemonDetailsBody } from "@/types/IPokemonDetailsBody";
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 
-const DetailsBody = (pokemonData: IPokemonDetailsBody) => {
+export interface IPokemonDetailsBodyProps {
+  abilities: { ability: { name: string } }[];
+  stats: { stat: { name: string }; base_stat: number }[];
+  weight: number;
+  height: number;
+  moves: { move: { name: string } }[];
+  flavor_text_entries: { flavor_text: string }[];
+  evolves_from_species: { name: string };
+}
+
+const DetailsBody = (pokemonData: IPokemonDetailsBodyProps) => {
   const [isAbout, setIsAbout] = useState(true);
   const [isStats, setIsStats] = useState(false);
   const [isMoves, setIsMoves] = useState(false);
