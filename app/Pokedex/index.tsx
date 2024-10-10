@@ -19,10 +19,12 @@ import { IPokemonDetails } from "@/types/IPokemonDetails";
 
 const Pokèdex = () => {
   const [pokemonData, setPokemonData] = useState<IPokemonTileProps[]>([]);
-  const [showFooter, setShowFooter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [showTextInput, setShowTextInput] = useState(false);
+
   const [searchedPokemon, setSearchedPokemon] = useState<IPokemonDetails>();
+
+  const [showFooter, setShowFooter] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -33,20 +35,6 @@ const Pokèdex = () => {
     } finally {
       setCurrentPage(currentPage + 1);
     }
-  };
-
-  const renderItem = ({ item }: ListRenderItemInfo<IPokemonTileProps>) => (
-    <GestureHandlerRootView>
-      <PokemonTile {...item} />
-    </GestureHandlerRootView>
-  );
-
-  const renderFooter = () => {
-    return showFooter ? (
-      <ActivityIndicator animating={true} size="large" color="#000000" />
-    ) : (
-      ""
-    );
   };
 
   const onSearch = async (query: string) => {
@@ -63,7 +51,7 @@ const Pokèdex = () => {
     }
   };
 
-  const tileProps = useMemo((): IPokemonTileProps | undefined => {
+  const transformedSearchResult = useMemo((): IPokemonTileProps | undefined => {
     if (!searchedPokemon) return undefined;
     return {
       name: searchedPokemon.name,
@@ -78,8 +66,22 @@ const Pokèdex = () => {
     fetchData();
   }, []);
 
+  const renderItem = ({ item }: ListRenderItemInfo<IPokemonTileProps>) => (
+    <GestureHandlerRootView>
+      <PokemonTile {...item} />
+    </GestureHandlerRootView>
+  );
+
+  const renderFooter = () => {
+    return showFooter ? (
+      <ActivityIndicator animating={true} size="large" color="#000000" />
+    ) : (
+      ""
+    );
+  };
+
   const handleButtonPress = () => {
-    setShowTextInput(!showTextInput);
+    setShowSearchBar(!showSearchBar);
   };
 
   return (
@@ -91,17 +93,17 @@ const Pokèdex = () => {
             <SearchButton />
           </View>
         </View>
-        {showTextInput && <SearchBox onSearch={onSearch} />}
-        {tileProps && (
+        {showSearchBar && <SearchBox onSearch={onSearch} />}
+        {transformedSearchResult && (
           <FlatList
             style={styles.flatlist}
-            data={[tileProps]}
+            data={[transformedSearchResult]}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
             contentContainerStyle={styles.contentContainerStyle}
           />
         )}
-        {!tileProps && (
+        {!transformedSearchResult && (
           <FlatList
             style={styles.flatlist}
             data={pokemonData}
