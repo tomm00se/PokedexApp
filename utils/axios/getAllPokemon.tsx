@@ -1,17 +1,17 @@
-import { IPokemonTile } from "@/types/IPokemonTile";
+import { IPokemonTileProps } from "@/components/PokemonTile";
 import apiClient from ".";
 
 export const getAllPokemon = async (currentPage: number) => {
   const pokemonPageIncrementSize = 12;
   try {
-    const pokemonData: IPokemonTile[] = [];
+    const pokemonData: IPokemonTileProps[] = [];
     for (let i = 1; i <= pokemonPageIncrementSize; i++) {
       try {
         const pokemonID = i + (currentPage - 1) * pokemonPageIncrementSize;
 
         const response = await apiClient.get(`pokemon/${pokemonID}`);
 
-        const pokemonTileData: IPokemonTile = {
+        const pokemonTileData: IPokemonTileProps = {
           name: response.data.species.name,
           id: response.data.id,
           type: response.data.types[0].type.name,
