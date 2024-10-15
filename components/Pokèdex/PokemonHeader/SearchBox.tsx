@@ -1,7 +1,5 @@
 import { View, TextInput, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import { getPokemonById } from "@/utils/axios/getPokemonById";
-import { IPokemonTileProps } from "@/components/PokemonTile";
 
 export interface ISearchBoxProps {
   onSearch: (query: string) => void;
@@ -29,6 +27,7 @@ const SearchBox = ({ onSearch }: ISearchBoxProps) => {
           }}
           value={value}
           onSubmitEditing={handleSubmit}
+          clearTextOnFocus={true}
         />
       </View>
     </>
