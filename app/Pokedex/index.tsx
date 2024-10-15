@@ -88,7 +88,14 @@ const Pokèdex = () => {
     <SafeAreaView style={styles.safeArea}>
       <View>
         <View style={styles.headingBlock}>
-          <Text style={styles.title}>Pokédex</Text>
+          <Text
+            style={styles.title}
+            onPress={() => {
+              setSearchedPokemon(undefined);
+            }}
+          >
+            Pokédex
+          </Text>
           <View onTouchStart={handleButtonPress}>
             <SearchButton />
           </View>
@@ -141,19 +148,6 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     padding: 20,
-  },
-  input: {
-    borderRadius: 30,
-    height: 50,
-    borderWidth: 1,
-    paddingHorizontal: 15,
-    marginHorizontal: 20,
-    borderColor: "#000000",
-    color: "#000000",
-  },
-  link: {
-    fontSize: 16,
-    paddingHorizontal: 20,
   },
   flatlist: {
     marginBottom: 40,
